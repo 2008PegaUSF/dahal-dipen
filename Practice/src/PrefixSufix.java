@@ -1,0 +1,44 @@
+class PrefixSufix { 
+	
+	static int longestPrefixSuffix(String s)  
+    { 
+    int n = s.length(); 
+    
+    if(n < 2) { 
+        return 0; 
+    } 
+  
+    int len = 0; 
+    int i = n/2; 
+    
+    while(i < n) { 
+    	
+        if(s.charAt(i) == s.charAt(len))
+        { 
+        ++len; 
+        ++i; 
+        }  
+	    else 
+	    { 
+	      if(len == 0) { // no prefix 
+	        ++i; 
+	      }  
+	      else 
+	      {  
+	        // search for shorter prefixes 
+	        --len; 
+	      } 
+	    } 
+  } 
+    
+  return len; 
+          
+} 
+      
+    // Driver code 
+    public static void main (String[] args)  
+    { 
+        String s = "blablabla"; 
+        System.out.println(longestPrefixSuffix(s)); 
+    } 
+} 
